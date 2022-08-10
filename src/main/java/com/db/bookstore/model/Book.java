@@ -22,4 +22,13 @@ public class Book {
     private int pages;
     private String publisher;
 
+    public Book(String title, int pages, String publisher) {
+        this.title = title;
+        this.pages = pages;
+        this.publisher = publisher;
+    }
+
+    public void setAuthorList(Set<Author> authorList) {
+        this.authorList = authorList;
+    }
 }

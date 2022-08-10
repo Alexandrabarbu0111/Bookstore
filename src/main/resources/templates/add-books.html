@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
+<link href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css" rel="stylesheet"/>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<form th:action="@{/th-new}" th:object="${dtoCLass}" method="post">
+    <label for="title_input">Title:</label>
+    <input type="text" th:field="*{title}" placeholder="title" id="title_input">
+    <br>
+    <label for="pages">Pages:</label>
+    <input type="text" th:field="*{pages}" placeholder="pages" id="pages">
+    <br>
+    <label for="publisher">Publisher:</label>
+    <input type="text" th:field="*{publisher}" placeholder="publisher" id="publisher">
+    <br>
+    <select multiple class="form-control" th:field="*{authorNames}" >
+        <option th:each="name: ${authorNames}"
+                th:value="${name}"
+                th:text="${name}">
+        </option>
+    </select>
+    <br>
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>

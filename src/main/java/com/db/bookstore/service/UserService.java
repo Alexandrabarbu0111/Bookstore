@@ -15,6 +15,10 @@ public class UserService {
     public void insertUser(User user){
         userRepository.save(user);
     }
+    public User findUserById(int id) {
+        User user = userRepository.findById(id);
+        return user;
+    }
     public User findByUsernameOrEmailAndPassword(User user) throws Exception {
        List<User> users = userRepository.findByUsernameOrEmailAndPassword(user.getUsername(), user.getEmail(), user.getPassword());
 
